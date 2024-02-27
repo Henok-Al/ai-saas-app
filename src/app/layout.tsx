@@ -4,15 +4,15 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 
-const IBMPLex = IBM_Plex_Sans({
+const IBMPlex = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-ibm-plex",
 });
 
 export const metadata: Metadata = {
-  title: "AI Saas",
-  description: "AI-powered imag generator",
+  title: "AI-Saas-App",
+  description: "AI-powered image generator",
 };
 
 export default function RootLayout({
@@ -21,9 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        variables: { colorPrimary: "#624cf5" },
+      }}
+    >
       <html lang="en">
-        <body className={cn("font-IBMPlex antialiased", IBMPLex.variable)}>
+        <body className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
           {children}
         </body>
       </html>
